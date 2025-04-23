@@ -26,7 +26,7 @@ public class MeilleurScoreTemps : MonoBehaviour
             meilleurScore = _jeu.pointageTemps;
 
             PlayerPrefs.SetFloat("meilleurScore", meilleurScore);
-            textMeilleurScore.text = "Meilleur score "+DateTime.Now.ToString("g")+" : " + meilleurScore.ToString("00.00");
+            textMeilleurScore.text = "Meilleur score : " + meilleurScore.ToString("00.00");
         }
     }
 }
