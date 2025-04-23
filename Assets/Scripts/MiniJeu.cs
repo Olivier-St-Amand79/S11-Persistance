@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MiniJeu : MonoBehaviour
 {
@@ -9,11 +10,12 @@ public class MiniJeu : MonoBehaviour
     public TextMeshProUGUI textScore;
     public TextMeshProUGUI textScorePanneau;
     [SerializeField] GameObject panneauRecord;
+    public TMP_InputField inputNom;
 
     void Start()
     {
         // Supprimer après test
-        PlayerPrefs.DeleteAll();
+        // PlayerPrefs.DeleteAll();
         pointageTemps = 0;
     }
 
@@ -39,5 +41,14 @@ public class MiniJeu : MonoBehaviour
     {
         panneauRecord.SetActive(true);
         textScorePanneau.text = textScore.text;
+    }
+
+    public void EnregistrerNomRecord()
+    {
+        string nom = inputNom.text;
+        PlayerPrefs.SetString("nom", nom);
+
+        // Redemarrer la scene actuel
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
